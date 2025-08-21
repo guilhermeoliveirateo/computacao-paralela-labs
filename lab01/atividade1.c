@@ -1,18 +1,18 @@
 # include <stdio.h>
- # include <unistd.h>
- # include <sys/wait.h>
+# include <unistd.h>
+# include <sys/wait.h>
 
  int main () {
  pid_t pid = fork ();
 
- if ( pid < 0) { // Erro
+ if ( pid < 0) {
     fprintf (stderr , " Fork falhou !\n");
     return 1;
- } else if (pid == 0) { // Processo Filho
+ } else if (pid == 0) {
     printf ("Eu sou o filho!\n");
- } else { // Processo Pai
+ } else {
     printf ("Eu sou o pai!\n");
-    wait ( NULL ); // Pai espera o filho terminar
+    wait ( NULL );
  }
  return 0;
 }
