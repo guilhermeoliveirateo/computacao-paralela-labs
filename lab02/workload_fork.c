@@ -15,13 +15,13 @@ void heavy_work ( double * vector , int start , int end) {
 }
 
 int main () {
-double * vector = ( double *) malloc ( VECTOR_SIZE * sizeof ( double ));
-for(int i = 0; i < VECTOR_SIZE ; i++) vector [i] = ( double )i;
+double * vector = (double *) malloc (VECTOR_SIZE * sizeof (double));
+for(int i = 0; i < VECTOR_SIZE ; i++) vector [i] = (double)i;
 
 int chunk_size = VECTOR_SIZE / NUM_PROCESSES;
 
 struct timespec start , end;
-clock_gettime ( CLOCK_MONOTONIC , & start );
+clock_gettime (CLOCK_MONOTONIC , & start);
 
 pid_t pid = fork();
 
@@ -41,14 +41,14 @@ for (int i = 0; i < NUM_PROCESSES; i++) {
     wait(NULL);
 }
 
-clock_gettime ( CLOCK_MONOTONIC , &end);
+clock_gettime (CLOCK_MONOTONIC , &end);
 
-double time_spent = ( end. tv_sec - start . tv_sec ) + (end. tv_nsec - start . tv_nsec ) / 1e9;
+double time_spent = (end. tv_sec - start . tv_sec) + (end. tv_nsec - start . tv_nsec) / 1e9;
 
-printf (" Versão paralela executou em %f segundos \n", time_spent );
-printf (" Resultado de verificacao : vector [10] = %f\n", vector [10]) ;
+printf ("Versão paralela executou em %f segundos \n", time_spent);
+printf ("Resultado de verificacao : vector [10] = %f\n", vector [10]) ;
 
-free ( vector );
+free (vector);
 return 0;
 
 }
