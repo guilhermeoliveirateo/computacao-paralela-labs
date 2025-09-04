@@ -5,7 +5,7 @@
  int main () {
  pid_t pid = fork ();
 
- if ( pid < 0) {
+ if (pid < 0) {
     fprintf (stderr , " Fork falhou !\n");
     return 1;
  } else if (pid == 0) {
